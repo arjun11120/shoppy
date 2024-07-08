@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './containers/Header';
+import HomeMainWrapper from './containers/HomeMainWrapper';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <HomeMainWrapper/>
     </div>
   );
 }
