@@ -1,72 +1,22 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux'
 import Container from "react-bootstrap/Container";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import "../css/Home.css";
-
-// Product data object
-const products = [
-  {
-    id: 1,
-    name: "AIR ZOOM PEGASUS",
-    imgSrc: "https://i.postimg.cc/8PkwdTYd/image.png",
-    priceBefore: "$990.00",
-    priceNow: "$749.00"
-  },
-  {
-    id: 2,
-    name: "AIR ZOOM PEGASUS",
-    imgSrc: "https://i.postimg.cc/4dBHXR1Z/image.png",
-    priceBefore: "$990.00",
-    priceNow: "$749.00"
-  },
-  {
-    id: 3,
-    name: "AIR ZOOM PEGASUS",
-    imgSrc: "https://i.postimg.cc/DfRL0nTy/image.png",
-    priceBefore: "$990.00",
-    priceNow: "$749.00"
-  },
-  {
-    id: 4,
-    name: "AIR ZOOM PEGASUS",
-    imgSrc: "https://i.postimg.cc/DfRL0nTy/image.png",
-    priceBefore: "$990.00",
-    priceNow: "$749.00"
-  }, {
-    id: 1,
-    name: "AIR ZOOM PEGASUS",
-    imgSrc: "https://i.postimg.cc/8PkwdTYd/image.png",
-    priceBefore: "$990.00",
-    priceNow: "$749.00"
-  },
-  {
-    id: 2,
-    name: "AIR ZOOM PEGASUS",
-    imgSrc: "https://i.postimg.cc/4dBHXR1Z/image.png",
-    priceBefore: "$990.00",
-    priceNow: "$749.00"
-  },
-  {
-    id: 3,
-    name: "AIR ZOOM PEGASUS",
-    imgSrc: "https://i.postimg.cc/DfRL0nTy/image.png",
-    priceBefore: "$990.00",
-    priceNow: "$749.00"
-  },
-  {
-    id: 4,
-    name: "AIR ZOOM PEGASUS",
-    imgSrc: "https://i.postimg.cc/DfRL0nTy/image.png",
-    priceBefore: "$990.00",
-    priceNow: "$749.00"
-  },
-];
+import { addProduct } from "../slice/productSlice";
 
 function Home() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.shoppyProducts?.products);
+  const cartList = useSelector((state) => state.shoppyProducts?.cartList);
+  console.log(cartList,"cartList");
+  const handleClick = (id) => {
+    dispatch(addProduct(id))
+  }
   return (
     <Container>
       <h1 className="title-shop mt-4">Shop Now</h1>
@@ -85,14 +35,14 @@ function Home() {
               </a>
               <div>
                 <span className="card__preci card__preci--before">
-                  <del>{product.priceBefore}</del>
+                  <del>${product.priceBefore}</del>
                 </span>
                 <span className="card__preci card__preci--now">
-                  {product.priceNow}
+                  ${product.priceNow}
                 </span>
               </div>
-              <a href="#" className="card__icon">
-                <Link to="/about" className="nav-link">
+              <a href="#" onClick={() => handleClick(product.id)} className="card__icon">
+                {/* <Link to="/about" className="nav-link"> */}
                 <OverlayTrigger
                   key={"placement"}
                   placement={"top"}
@@ -104,7 +54,7 @@ function Home() {
                 >
                   <FontAwesomeIcon icon={faBagShopping} />
                 </OverlayTrigger>
-                </Link>
+                {/* </Link> */}
               </a>
             </div>
           </article>

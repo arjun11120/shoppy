@@ -4,7 +4,7 @@ import { Link, Routes, Route } from 'react-router-dom'; // Import Link from reac
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Home from './Home';
-import About from './About';
+import Cart from './Cart';
 
 function Header() {
   return (
@@ -18,14 +18,14 @@ function Header() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Link to="/" className="nav-link">Home</Link>
-              <Link to="/about" className="nav-link">About</Link>
+              <Link to="/cart" className="nav-link">Cart</Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </React.Fragment>
   );
