@@ -1,142 +1,158 @@
 import React, { useState } from "react";
-import { Table, Input } from "antd";
+import { Table, Input, Button } from "antd";
+import { SearchOutlined, FilterOutlined, CalendarOutlined, SendOutlined, DownOutlined } from "@ant-design/icons";
 
 const CustomTable = () => {
-  const [searchEmp, setSearchEmp] = useState("");
+  const [searchOrder, setSearchOrder] = useState("");
   const [sortColumn, setSortColumn] = useState(null);
   const [sortOrder, setSortOrder] = useState(null);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
-const employees = [
-          {
-            EmployeeId: 1002,
-            EmpName: "Jane Smith",
-            Department: "Marketing",
-            Salary: 60000,
-            PhNumber: "555-5678",
-            EmailId: "jane.smith@example.com",
-            Address: "456 Elm St",
-            State: "CA",
-          },
-          {
-            EmployeeId: 1001,
-            EmpName: "John Doe",
-            Department: "HR",
-            Salary: 50000,
-            PhNumber: "555-1234",
-            EmailId: "john.doe@example.com",
-            Address: "123 Main St",
-            State: "NY",
-          },
-          {
-            EmployeeId: 1003,
-            EmpName: "Michael Johnson",
-            Department: "Finance",
-            Salary: 55000,
-            PhNumber: "555-9876",
-            EmailId: "michael.johnson@example.com",
-            Address: "789 Oak St",
-            State: "TX",
-          },
-          {
-            EmployeeId: 1005,
-            EmpName: "David Garcia",
-            Department: "Operations",
-            Salary: 48000,
-            PhNumber: "555-8765",
-            EmailId: "david.garcia@example.com",
-            Address: "202 Cedar St",
-            State: "WA",
-          },
-          {
-            EmployeeId: 1004,
-            EmpName: "Emily Chen",
-            Department: "IT",
-            Salary: 65000,
-            PhNumber: "555-5432",
-            EmailId: "emily.chen@example.com",
-            Address: "101 Maple St",
-            State: "FL",
-          },
-          {
-            EmployeeId: 1006,
-            EmpName: "Anna Brown",
-            Department: "Sales",
-            Salary: 62000,
-            PhNumber: "555-6789",
-            EmailId: "anna.brown@example.com",
-            Address: "333 Pine St",
-            State: "NV",
-          },
-          {
-            EmployeeId: 1007,
-            EmpName: "Brian Wilson",
-            Department: "Customer Support",
-            Salary: 47000,
-            PhNumber: "555-2345",
-            EmailId: "brian.wilson@example.com",
-            Address: "444 Birch St",
-            State: "OR",
-          },
-          {
-            EmployeeId: 1008,
-            EmpName: "Carol Martinez",
-            Department: "Legal",
-            Salary: 70000,
-            PhNumber: "555-3456",
-            EmailId: "carol.martinez@example.com",
-            Address: "555 Spruce St",
-            State: "AZ",
-          }
-        ]
+  const orders = [
+    {
+      "CustomerName": "Janet Adebayo",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Home Delivery",
+      "TrackingID": "9348fjt73",
+      "OrderTotal": "₦25,000.00",
+      "Action": "Completed",
+      "Status": "Completed",
+      "key": 1
+    },
+    {
+      "CustomerName": "Samuel Johnson",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Home Delivery",
+      "TrackingID": "9348fjt74",
+      "OrderTotal": "₦25,000.00",
+      "Action": "In-Progress",
+      "Status": "In-Progress",
+      "key": 2
+    },
+    {
+      "CustomerName": "Francis Doe",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Pick Up",
+      "TrackingID": "9348fjt75",
+      "OrderTotal": "₦25,000.00",
+      "Action": "Pending",
+      "Status": "Pending",
+      "key": 3
+    },
+    {
+      "CustomerName": "Christian Dior",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Pick Up",
+      "TrackingID": "9348fjt76",
+      "OrderTotal": "₦25,000.00",
+      "Action": "Completed",
+      "Status": "Completed",
+      "key": 4
+    },
+    {
+      "CustomerName": "Christian Dior",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Pick Up",
+      "TrackingID": "9348fjt77",
+      "OrderTotal": "₦25,000.00",
+      "Action": "Completed",
+      "Status": "Completed",
+      "key": 5
+    },
+    {
+      "CustomerName": "Janet Adebayo",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Home Delivery",
+      "TrackingID": "9348fjt78",
+      "OrderTotal": "₦25,000.00",
+      "Action": "Completed",
+      "Status": "Completed",
+      "key": 6
+    },
+    {
+      "CustomerName": "Samuel Johnson",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Home Delivery",
+      "TrackingID": "9348fjt79",
+      "OrderTotal": "₦25,000.00",
+      "Action": "In-Progress",
+      "Status": "In-Progress",
+      "key": 7
+    },
+    {
+      "CustomerName": "Francis Doe",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Pick Up",
+      "TrackingID": "9348fjt80",
+      "OrderTotal": "₦25,000.00",
+      "Action": "Pending",
+      "Status": "Pending",
+      "key": 8
+    },
+    {
+      "CustomerName": "Christian Dior",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Pick Up",
+      "TrackingID": "9348fjt81",
+      "OrderTotal": "₦25,000.00",
+      "Action": "Completed",
+      "Status": "Completed",
+      "key": 9
+    },
+    {
+      "CustomerName": "Christian Dior",
+      "OrderDate": "12 Aug 2022 - 12:25 am",
+      "OrderType": "Pick Up",
+      "TrackingID": "9348fjt82",
+      "OrderTotal": "₦25,000.00",
+      "Action": "Completed",
+      "Status": "Completed",
+      "key": 10
+    }
+  ];
+  
 
   const columns = [
     {
-      title: "EmployeeId",
-      dataIndex: "EmployeeId",
-      key: "EmployeeId",
+      title: "Customer Name",
+      dataIndex: "CustomerName",
+      key: "CustomerName",
       sorter: true,
     },
     {
-      title: "EmpName",
-      dataIndex: "EmpName",
-      key: "EmpName",
+      title: "Order Date",
+      dataIndex: "OrderDate",
+      key: "OrderDate",
       sorter: true,
     },
     {
-      title: "Department",
-      dataIndex: "Department",
-      key: "Department",
+      title: "Order Type",
+      dataIndex: "OrderType",
+      key: "OrderType",
       sorter: true,
     },
     {
-      title: "Salary",
-      dataIndex: "Salary",
-      key: "Salary",
+      title: "Tracking ID",
+      dataIndex: "TrackingID",
+      key: "TrackingID",
       sorter: true,
     },
     {
-      title: "Phone Number",
-      dataIndex: "PhNumber",
-      key: "PhNumber",
+      title: "Order Total",
+      dataIndex: "OrderTotal",
+      key: "OrderTotal",
       sorter: true,
     },
     {
-      title: "EmailId",
-      dataIndex: "EmailId",
-      key: "EmailId",
+      title: "Action",
+      dataIndex: "Action",
+      key: "Action",
       sorter: true,
     },
     {
-      title: "Address",
-      dataIndex: "Address",
-      key: "Address",
-      sorter: true,
-    },
-    {
-      title: "State",
-      dataIndex: "State",
-      key: "State",
+      title: "Status",
+      dataIndex: "Status",
+      key: "Status",
       sorter: true,
     },
   ];
@@ -147,14 +163,14 @@ const employees = [
   };
 
   const handleSearch = (e) => {
-    setSearchEmp(e.target.value);
+    setSearchOrder(e.target.value);
   };
 
-  const searchedEmployees = employees.filter((employee) =>
-    employee.EmpName.toLowerCase().includes(searchEmp.toLowerCase())
+  const searchedOrders = orders.filter((order) =>
+    order.CustomerName.toLowerCase().includes(searchOrder.toLowerCase())
   );
 
-  const sortedData = [...searchedEmployees].sort((a, b) => {
+  const sortedData = [...searchedOrders].sort((a, b) => {
     if (!sortColumn) return 0;
     const order = sortOrder === "ascend" ? 1 : -1;
     if (a[sortColumn] < b[sortColumn]) return -order;
@@ -173,19 +189,28 @@ const employees = [
 
   return (
     <div className="mt-3">
-      <Input
-        placeholder="Search Employee"
-        value={searchEmp}
-        onChange={handleSearch}
-        style={{ marginBottom: 16 }}
-      />
+      <div className="d-flex align-items-center justify-content-between">
+        <span style={{ fontWeight: 400, fontSize: "16px" }}>Customer Orders</span>
+        <div className="d-flex">
+          <Input
+            addonBefore={<SearchOutlined />}
+            placeholder="Search Order"
+            onChange={handleSearch}
+            style={{ marginBottom: 16, width: "50%", marginLeft: "10px" }}
+          />
+          <Button  icon={<FilterOutlined />} style={{ marginLeft: "10px", marginRight: "10px" }}>Filter</Button>
+          <Button  icon={<CalendarOutlined />}>Filter</Button>
+          <Button  icon={<SendOutlined />} style={{ marginLeft: "10px", marginRight: "10px" }}>Share</Button>
+          <Button  icon={<DownOutlined />} iconPosition={"end"} style={{ marginRight: "10px" }}>Bulk Action</Button>
+        </div>
+      </div>
       <Table
         rowSelection={rowSelection}
         columns={columns}
         dataSource={sortedData}
         pagination={false}
         onChange={handleTableChange}
-        rowKey="EmployeeId"
+        rowKey="key"
       />
     </div>
   );
