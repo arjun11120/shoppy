@@ -20,7 +20,9 @@ body {
     border-radius: 0px 10px 10px 0px;
 }
 .sidebar-bottom {
-  margin-top: 200px;
+  position: fixed;
+  bottom: 60px;
+  left: 0;
 }
 
 .logout-icon {
@@ -87,10 +89,3 @@ h2 {
   padding: 4px;
 }
 
-.ant-picker {
-  height: 32px;
-}
-.ant-picker-input input {
-  font-size: 12px !important;
-  width: 70px !important;
-}
