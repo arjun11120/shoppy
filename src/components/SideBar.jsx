@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { HomeOutlined } from "@ant-design/icons";
+import { SearchOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import {
   Breadcrumb,
   Layout,
@@ -39,8 +39,6 @@ import inventory from "../assets/images/inventory.png";
 import settings from "../assets/images/settings.png";
 import CustomersIcon from "../assets/images/Customers.png";
 import LogoutIcon from "../assets/images/Logout.png";
-import ContactIcon from "../assets/images/contact.png";
-import giftIcon from "../assets/images/gift.png";
 
 const items = [
   getItem(
@@ -96,7 +94,11 @@ const SideBar = () => {
   };
   return (
     <>
-      <Layout>
+      <Layout
+        style={{
+          minHeight: "50vh",
+        }}
+      >
         <Sider
           collapsible
           collapsed={collapsed}
@@ -112,7 +114,7 @@ const SideBar = () => {
               width={30}
               height={30}
               preview={false}
-              className="logout-icon"
+              className="logout-icon"  
             />
             {!collapsed && "Metrix"}
           </h2>
@@ -123,47 +125,15 @@ const SideBar = () => {
             onClick={handleMenuClick}
           />
           <div className="sidebar-bottom">
-            <div>
-              <Button
-                type="primary"
-                style={{
-                  marginLeft: !collapsed ? "5px" : "20px",
-                  marginBottom: "10px",
-                  background: "#efeff0",
-                  color: "black",
-                  padding: "20px 20px"
-                }}
-                icon={
-                  <img
-                    src={ContactIcon}
-                    width={20}
-                    height={20}
-                    preview={false}
-                  />
-                }
-                iconPosition={"start"}
-              >
-                {!collapsed && "Contact Support"}
-              </Button>
-            </div>
-            <div>
-            </div>
-            <div>
-              <Button
-                icon={
-                  <img
-                    src={LogoutIcon}
-                    width={20}
-                    height={20}
-                    preview={false}
-                  />
-                }
-                type="link"
-                style={{ color: "#d57b7b", marginLeft: "25px" }}
-              >
-                {!collapsed && "Logout"}
-              </Button>
-            </div>
+            <Button
+              icon={
+                <img src={LogoutIcon} width={20} height={20} preview={false} />
+              }
+              type="link"
+              style={{ color: "#d57b7b", marginLeft: "25px"}}
+            >
+              {!collapsed && "Logout" }
+            </Button>
           </div>
         </Sider>
         <Content
@@ -173,11 +143,11 @@ const SideBar = () => {
         >
           <Layout>
             <Header className="p-0">
-              <CommonPageHeader />
+              <CommonPageHeader/>
             </Header>
             <Content
               style={{
-                margin: "0px 16px 16px",
+                margin: "0 16px",
               }}
             >
               <Breadcrumb
@@ -185,9 +155,8 @@ const SideBar = () => {
                   margin: "16px 0",
                 }}
               >
-                <HomeOutlined
-                  style={{ color: "#5570f1", marginLeft: "10px" }}
-                />
+                <Breadcrumb.Item>User</Breadcrumb.Item>
+                <Breadcrumb.Item>Bill</Breadcrumb.Item>
               </Breadcrumb>
               <div
                 style={{

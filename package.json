@@ -17,7 +17,6 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/icons-material": "^5.16.0",
     "@mui/material": "^5.16.0",
-    "@mui/x-charts": "^7.9.0",
     "@reduxjs/toolkit": "^2.2.6",
     "antd": "^5.19.1",
     "axios": "^1.7.2",
@@ -28,8 +27,7 @@
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
     "react-router-bootstrap": "^0.26.3",
-    "react-router-dom": "^6.24.1",
-    "recharts": "^2.12.7"
+    "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

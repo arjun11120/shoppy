@@ -1,6 +1,5 @@
 import React from "react";
 import CustomCard from "./CustomCard";
-import CustomCardWithChart from "./CustomChartCard";
 import cardicon from "../assets/images/cardicon.png";
 import Customers from "../assets/images/Customers.png";
 import bag from "../assets/images/bag.png";
@@ -31,14 +30,18 @@ const cardData = [
       { label: "Completed", value: "445" }
     ]
   },
+  {
+    icon: Customers,
+    timeframe: "This Week",
+    metrics: [
+      { label: "Customers", value: "1,250", change: { value: "+15.80%", color: "green" } },
+      { label: "Active", value: "450", change: { value: "85%", color: "green" } }
+    ]
+  },
 ];
 
 const Dashboard = () => {
-  return (
-  <>
-    <CustomCard cardData={cardData} />
-    <CustomCardWithChart />
-  </>
-)};
+  return <CustomCard cardData={cardData} />;
+};
 
 export default Dashboard;
