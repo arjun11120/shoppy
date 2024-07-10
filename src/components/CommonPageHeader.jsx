@@ -58,8 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function CommonPageHeader(props) {
-  const {selectedOption} = props;
+export default function CommonPageHeader() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -140,12 +139,13 @@ export default function CommonPageHeader(props) {
       </MenuItem>
     </Menu>
   );
+
   return (
     <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {selectedOption == 1 ? "Dashboard" : "Order"}
+            Dashboard
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

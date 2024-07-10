@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { HomeOutlined, RightOutlined } from "@ant-design/icons";
+import { HomeOutlined } from "@ant-design/icons";
 import {
   Breadcrumb,
   Layout,
@@ -40,7 +40,7 @@ import settings from "../assets/images/settings.png";
 import CustomersIcon from "../assets/images/Customers.png";
 import LogoutIcon from "../assets/images/Logout.png";
 import ContactIcon from "../assets/images/contact.png";
-import Gift from "../assets/images/gift.png";
+import giftIcon from "../assets/images/gift.png";
 
 const items = [
   getItem(
@@ -131,7 +131,7 @@ const SideBar = () => {
                   marginBottom: "10px",
                   background: "#efeff0",
                   color: "black",
-                  padding: "20px 27px"
+                  padding: "20px 20px"
                 }}
                 icon={
                   <img
@@ -146,21 +146,7 @@ const SideBar = () => {
                 {!collapsed && "Contact Support"}
               </Button>
             </div>
-            <div className="gift-seection">
-              <div>
-                <img
-                  src={Gift} 
-                  width={20}
-                  height={20}
-                  preview={false}
-                  className="logout-icon"
-                />
-                  <span style={{ fontWeight: 400, fontSize: "14px", color:"#1C1D22" }}>{!collapsed && "Free Gift Awaits You!"}</span>
-              </div>
-              <div>
-                <span style={{ fontWeight: 400, fontSize: "12px", color:"#6E7079", marginLeft:"30px" }}>{!collapsed && "Free Gift Awaits You!"}</span>  
-                <RightOutlined />
-              </div>
+            <div>
             </div>
             <div>
               <Button
@@ -173,7 +159,7 @@ const SideBar = () => {
                   />
                 }
                 type="link"
-                style={{ color: "#d57b7b", marginLeft: "25px", marginTop:"30px" }}
+                style={{ color: "#d57b7b", marginLeft: "25px" }}
               >
                 {!collapsed && "Logout"}
               </Button>
@@ -187,7 +173,7 @@ const SideBar = () => {
         >
           <Layout>
             <Header className="p-0">
-              <CommonPageHeader selectedOption={selectedOption} />
+              <CommonPageHeader />
             </Header>
             <Content
               style={{
