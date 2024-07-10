@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Table, Input, Button } from "antd";
+import { Table, Input, Button, DatePicker } from "antd";
 import { SearchOutlined, FilterOutlined, CalendarOutlined, SendOutlined, DownOutlined } from "@ant-design/icons";
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(customParseFormat);
 
+const dateFormat = 'YYYY-MM-DD';
 const CustomTable = () => {
   const [searchOrder, setSearchOrder] = useState("");
   const [sortColumn, setSortColumn] = useState(null);
@@ -199,7 +203,11 @@ const CustomTable = () => {
             style={{ marginBottom: 16, width: "50%", marginLeft: "10px" }}
           />
           <Button  icon={<FilterOutlined />} style={{ marginLeft: "10px", marginRight: "10px" }}>Filter</Button>
-          <Button  icon={<CalendarOutlined />}>Filter</Button>
+          <DatePicker
+            defaultValue={dayjs('2019-09-03', dateFormat)}
+            minDate={dayjs('2019-08-01', dateFormat)}
+            maxDate={dayjs('2020-10-31', dateFormat)}
+          />
           <Button  icon={<SendOutlined />} style={{ marginLeft: "10px", marginRight: "10px" }}>Share</Button>
           <Button  icon={<DownOutlined />} iconPosition={"end"} style={{ marginRight: "10px" }}>Bulk Action</Button>
         </div>
