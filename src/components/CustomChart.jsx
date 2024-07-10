@@ -3,9 +3,9 @@ import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import Stack from '@mui/material/Stack';
 
 const data = [
-  { name: 'Retention', value: 60 },
-  { name: 'Purchase', value: 20 },
-  { name: 'Acquisition', value: 20 },
+  { name: 'Group A', value: 60 },
+  { name: 'Group B', value: 20 },
+  { name: 'Group C', value: 20 },
 ];
 
 const COLORS = ['#FFCC91', '#5570F1', '#97A5EB'];
