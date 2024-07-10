@@ -39,6 +39,10 @@ body {
   padding: 20px;
 }
 
+span.ant-menu-title-content {
+  margin-right: 0px !important;
+}
+
 .custom-card {
   margin: 10px;
   text-align: center;
@@ -94,3 +98,10 @@ h2 {
   font-size: 12px !important;
   width: 70px !important;
 }
+/* .ant-layout-sider .ant-layout-sider-dark .ant-layout-sider-has-trigger{
+  background: rgb(255, 255, 255) !important;
+  flex: none !important;
+  max-width: none !important;
+  width: auto !important;
+  min-width: auto !important;
+} */

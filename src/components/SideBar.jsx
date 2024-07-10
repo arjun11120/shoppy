@@ -101,7 +101,7 @@ const SideBar = () => {
           collapsible
           collapsed={collapsed}
           style={{
-            background: "#fff",
+            background: "#fff"
           }}
           onCollapse={(value) => setCollapsed(value)}
         >
@@ -147,7 +147,7 @@ const SideBar = () => {
               </Button>
             </div>
             <div className="gift-seection">
-              <div>
+              <div className="text-align-center">
                 <img
                   src={Gift} 
                   width={20}
@@ -157,8 +157,8 @@ const SideBar = () => {
                 />
                   <span style={{ fontWeight: 400, fontSize: "14px", color:"#1C1D22" }}>{!collapsed && "Free Gift Awaits You!"}</span>
               </div>
-              <div>
-                <span style={{ fontWeight: 400, fontSize: "12px", color:"#6E7079", marginLeft:"30px" }}>{!collapsed && "Free Gift Awaits You!"}</span>  
+              <div className="text-align-center">
+                <span style={{ fontWeight: 400, fontSize: "12px", color:"#6E7079" }}>{!collapsed && "Free Gift Awaits You!"}</span>  
                 <RightOutlined />
               </div>
             </div>
