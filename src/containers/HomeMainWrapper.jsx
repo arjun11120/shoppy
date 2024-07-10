@@ -6,9 +6,12 @@ import Sidebar from '../components/SideBar'
 
 const HomeMainWrapper = () => {
   return (
-          <>
+      <Row>
+        <Col xs={2}>
           <Sidebar />
-          </>
+        </Col>
+        <Col>1 of 1</Col>    
+      </Row>
   )
 }
 
